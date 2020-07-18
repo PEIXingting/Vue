@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Title</title>
+  <meta charset="utf-8">
+  <title>Title</title>
 </head>
 <body>
 
 <div id="app">
-    <ul>
-        <li v-for="item in numbers">{{item}}</li>
-    </ul>
+  <ul>
+    <li v-for="item in numbers">{{item}}</li>
+  </ul>
 </div>
 
 <script src="../js/vue.js"></script>
 <script>
-    const app = new Vue({
-        el: '#app',
-        data: {
-            message: 'Hello',
-            numbers: ['ONE', 'TWO', 'THREE', 'FOUR']
-        }
-    })
+  const app = new Vue({
+    el: '#app',
+    data: {
+      messages: 'Hello',
+      numbers: ['ONE', 'TWO', 'THREE', 'FOUR']
+    }
+  })
 </script>
 
 </body>
