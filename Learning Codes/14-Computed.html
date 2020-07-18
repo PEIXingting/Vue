@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <h2>{{fullName}}</h2>
+  <h2>Total Price: {{totalPrice}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      messages: 'Hello',
+      firstName: 'kobe',
+      lastName: 'bryant',
+      counter: 100,
+      books: [
+        {id: 110, name: 'unix编程艺术', price: 119},
+        {id: 111, name: '代码大全', price: 105},
+        {id: 112, name: '深入理解计算机原理', price: 98},
+        {id: 113, name: '现代操作系统', price: 87},
+      ]
+    },
+    computed: {
+      fullName: function () {
+        return this.firstName + ' ' + this.lastName
+      },
+      // 计算属性一般没有set方法，只读属性
+      // fullName: {
+      //   set: function (newValue) {
+      //     const names = newValue.split(' ')
+      //     this.firstName = names[0]
+      //     this.lastName = names[1]
+      //   },
+      //   get: function () {
+      //     return this.firstName + ' ' + this.lastName
+      //   }
+      // },
+      totalPrice: function () {
+        let result = 0
+        // for (let i = 0; i < this.books.length; i++) {
+        //   result += this.books[i].price
+        // }
+        for (let i in this.books) {
+          result += this.books[i].price
+        }
+        return result
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
