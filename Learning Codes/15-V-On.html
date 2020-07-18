@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+  <button @click="btn1Click()">Button1</button>
+  <button @click="btn1Click">Button2</button>
+  <button @click="btn2Click">Button3</button>
+  <button @click="btn3Click('abc', $event)">Button4</button>
+  <hr>
+  <div @click="divClick">
+    -----------
+    <button @click.stop="btnClick">Button</button>
+  </div>
+  <hr>
+  <form action="baidu">
+    <input type="submit" value="submit" @click.prevent="submitClick">
+  </form>
+  <hr>
+  <input type="text" @keyup.enter="keyUp">
+  <hr>
+  <button @click.once="btn1Click">Button</button>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {},
+    methods: {
+      btn1Click() {
+        console.log("btn1Click");
+      },
+      btn2Click(event) {
+        console.log('-------------', event);
+      },
+      btn3Click(abc, event) {
+        console.log('+++++++++++++', abc, event);
+      },
+      divClick() {
+        console.log("divClick");
+      },
+      btnClick() {
+        console.log("btnClick");
+      },
+      submitClick() {
+        console.log("submitClick");
+      },
+      keyUp() {
+        console.log("keyUp");
+      }
+    }
+  })
+</script>
+
+
+</body>
+</html>
