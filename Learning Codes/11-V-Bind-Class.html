@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <img v-bind:src="imgURL" alt="">
+  <a v-bind:href="imgURL">Baidu</a>
+
+  <img :src="imgURL" alt="">
+
+  <h2 :class="activeClass">{{messages}}</h2>
+
+<!--  <h2 :class="{类名1: boolean, 类名2: boolean}">{{messages}}</h2>-->
+  <h2 class="title" :class="getClasses()">{{messages}}</h2>
+  <h2 class="title" :class="{active: isActive, line: isLine}">{{messages}}</h2>
+
+  <button @click="buttonClick">Button</button>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      messages: 'Hello',
+      imgURL: 'https://img13.360buyimg.com/n7/jfs/t1/125384/12/4972/199555/5ee7767fEb14739bd/9b5380608c9dcb75.jpg',
+      activeClass: 'active',
+      isActive: true,
+      isLine: true,
+    },
+    methods: {
+      buttonClick: function () {
+        this.isActive = !this.isActive
+      },
+      getClasses: function () {
+        return {active: this.isActive, line: this.isLine}
+      }
+    }
+  })
+</script>
+
+</body>
+</html>
